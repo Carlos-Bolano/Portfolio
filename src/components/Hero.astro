@@ -1,52 +1,65 @@
 ---
-const personalImageAlt = "Carlos Bolaño - Calisto"
-import Badge from "@/components/Badge.astro"
-import LinkedInIcon from "@/components/icons/LinkedIn.astro"
-import MailIcon from "@/components/icons/Mail.astro"
-import SocialPill from "@/components/SocialPill.astro"
-// import Cv from "./icons/Cv.astro"
+const personalImageAlt = "Carlos Bolaño - Calisto";
+import Badge from "@/components/Badge.astro";
+import LinkedInIcon from "@/components/icons/LinkedIn.astro";
+import MailIcon from "@/components/icons/Mail.astro";
+import SocialPill from "@/components/SocialPill.astro";
+import CV from "./icons/CV.astro";
+import Github from "./icons/Github.astro";
 ---
 
-<section class="flex flex-col md:flex-row items-center  gap-8">
-  <img width="220" height="220" src="/me.webp" alt={personalImageAlt} class="object-cover w-64 h-full p-1 -rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
+<section class="flex flex-col lg:flex-row items-center gap-8">
+  <img
+    width="240"
+    height="220"
+    src="/me.webp"
+    alt={personalImageAlt}
+    class="object-cover  w-64 h-full p-1 lg:p-2 lg:w-64 rounded-2xl bg-gray-600/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+    style="object-position: 50% 50%"
+  />
 
   <div class="max-w-max">
-    <div class="flex gap-4 mb-4">
-    <a
-      href="https://linkedin.com/in/carlos-bolano"
-      target="_blank"
-      rel="noopener"
-      class="flex items-center transition md:justify-center md:hover:scale-105"
-    >
-      <Badge>Disponible para trabajar</Badge>
-    </a>
-  </div>
-    <h1
-    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
-  >
-    Hola, soy calisto
-  </h1>
-  <p
-  class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
->
-+2 años de experiencia creando aplicaciones web innovadoras.
-  <strong>Full Stack Web Developer</strong> de Barranquilla, 
-  <span class="text-yellow-500 font-medium">Colo</span><span class="text-blue-500 font-medium">mb</span><span class="text-red-500 font-medium">ia</span> co. Especializado en desarrollar soluciones unicas para que resuelven problemas reales.
-</p>
+    <div class="flex items-center flex-wrap-reverse gap-4 ">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
+        Hey, soy calisto
+      </h1>
+      <a
+        href="https://linkedin.com/in/carlos-bolano"
+        target="_blank"
+        rel="noopener"
+        class="flex items-center transition md:justify-center md:hover:scale-105"
+      >
+        <Badge>Disponible para trabajar</Badge>
+      </a>
+    </div>
 
-  <nav class="flex flex-wrap gap-4 mt-8">
-    <SocialPill href="mailto:carlostutos828@gmail.com">
-      <MailIcon class="size-4" />
-      Contáctame
-    </SocialPill>
-    <SocialPill href="https://linkedin.com/in/carlos-bolano">
-      <!-- <Cv class="size-4" /> -->
-      Curriculum
-    </SocialPill>
-    <SocialPill href="https://linkedin.com/in/carlos-bolano">
-      <LinkedInIcon class="size-4" />
-      LinkedIn
-    </SocialPill>
-  </nav>
+    <p
+      class="mt-4 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+    >
+      +2 años de experiencia creando aplicaciones web innovadoras.
+      <strong>Full Stack Web Developer</strong> de Barranquilla,
+      <span class="text-yellow-500 font-medium">Colo</span><span class="text-blue-500 font-medium">mb</span
+      ><span class="text-red-500 font-medium">ia</span> co. Especializado en desarrollar soluciones unicas para
+      que resuelvan problemas reales.
+    </p>
+
+    <nav class="flex flex-wrap gap-4 mt-6">
+      <SocialPill href="https://drive.google.com/file/d/1oW57JdISu_Tmg4fg9z_rUjth_c_qkpBo/view?usp=sharing">
+        <CV class="size-4" />
+        Curriculum
+      </SocialPill>
+      <SocialPill href="mailto:carlostutos828@gmail.com">
+        <MailIcon class="size-4" />
+        Correo
+      </SocialPill>
+      <SocialPill href="https://linkedin.com/in/carlos-bolano">
+        <LinkedInIcon class="size-4" />
+        LinkedIn
+      </SocialPill>
+      <SocialPill href="https://github.com/Carlos-Bolano">
+        <Github class="size-4" />
+        Github
+      </SocialPill>
+    </nav>
   </div>
 </section>
