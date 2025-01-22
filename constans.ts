@@ -1,3 +1,22 @@
+import AstroJS from "@/components/icons/AstroJS.astro";
+import CSS from "@/components/icons/CSS.astro";
+import ESlint from "@/components/icons/ESlint.astro";
+import ExpressJS from "@/components/icons/ExpressJS.astro";
+import Gemini from "@/components/icons/Gemini.astro";
+import Git from "@/components/icons/Git.astro";
+import Github from "@/components/icons/Github.astro";
+import HTML from "@/components/icons/HTML.astro";
+import IaSdk from "@/components/icons/IaSdk.astro";
+import JavaScript from "@/components/icons/JavaScript.astro";
+import MongoDB from "@/components/icons/MongoDB.astro";
+import NextAuth from "@/components/icons/NextAuth.astro";
+import NextJS from "@/components/icons/NextJS.astro";
+import NodeJS from "@/components/icons/NodeJS.astro";
+import ReactJS from "@/components/icons/ReactJS.astro";
+import Shadcn from "@/components/icons/Shadcn.astro";
+import Tailwind from "@/components/icons/Tailwind.astro";
+import TypeScript from "@/components/icons/TypeScript.astro";
+
 export const navItems = [
   {
     title: "Experiencia",
@@ -21,59 +40,143 @@ export const navItems = [
   },
 ];
 
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-[#003159] text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "TailwindCSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  REACT: {
+    name: "React.js",
+    class: "bg-[#003159] text-white",
+    icon: ReactJS,
+  },
+  ESLINT: {
+    name: "ESLint",
+    class: "bg-[#003159] text-white",
+    icon: ESlint,
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-[#003159] text-white",
+    icon: TypeScript,
+  },
+  GEMINI: {
+    name: "Gemini",
+    class: "bg-[#003159] text-white",
+    icon: Gemini,
+  },
+  IA_SDK: {
+    name: "IA SDK",
+    class: "bg-[#003159] text-white",
+    icon: IaSdk,
+  },
+  SHADCN: {
+    name: "shadcn/ui",
+    class: "bg-[#003159] text-white",
+    icon: Shadcn,
+  },
+  NEXTAUTH: {
+    name: "NextAuth",
+    class: "bg-[#003159] text-white",
+    icon: NextAuth,
+  },
+  MONGODB: {
+    name: "MongoDB",
+    class: "bg-[#003159] text-white",
+    icon: MongoDB,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#003159] text-white",
+    icon: AstroJS,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-[#003159] text-white",
+    icon: HTML,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-[#003159] text-white",
+    icon: CSS,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#003159] text-white",
+    icon: JavaScript,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "bg-[#003159] text-white",
+    icon: NodeJS,
+  },
+  GIT: {
+    name: "Git",
+    class: "bg-[#003159] text-white",
+    icon: Git,
+  },
+  GITHUB: {
+    name: "GitHub",
+    class: "bg-[#003159] text-white",
+    icon: Github,
+  },
+  EXPRESS: {
+    name: "Express",
+    class: "bg-[#003159] text-white",
+    icon: ExpressJS,
+  },
+};
+
 export const PROJECTS = [
   {
-    title: "Moodflix",
+    title: "Moodflix - Movies Recommendations based on your mood.",
     description:
-      "An AI-powered movie recommendation app that analyzes users' emotional state from their text input and suggests movies that match their mood.",
+      "Una aplicación de recomendación de películas impulsada por IA. Sugiere películas que coincidan con su estado de ánimo. creada desde cero usando Gemini y Next.js.",
     link: "https://moodflix-by-calisto.vercel.app",
-    image: "/projects/adventjs.webp",
+    image: "/projects/moodflix.webp",
     github: "https://github.com/Carlos-Bolano/moodflix",
-    // tags: [TAGS.NEXT, TAGS.REACT, TAGS.TAILWIND, TAGS.ESLINT, TAGS.GEMINI, TAGS.IA_SDK],
+    tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.GEMINI],
   },
   {
-    title: "Jadirh Gonzalez Poems",
+    title: "Jadirh Gonzalez Poems - Poetry Blog",
     description:
-      "A poetry blog I designed and developed for a client passionate about writing. The site provides an interactive experience where fans can explore, comment, and like Jadirh González's poems.",
+      "Un blog de poesía que diseñé y desarrollé para un cliente apasionado por la escritura. Los fans pueden explorar, comentar y dar 'me gusta' a los poemas de Jadirh. Creado y diseñado desde cero por mi.",
     link: "https://jadirhgonzalezpoems.vercel.app",
-    image: "/projects/project-06.webp",
-    github: "https://github.com/Carlos-Bolano/jadirhgonzalezpoems",
-    // tags: [TAGS.NEXT, TAGS.SHADCN, TAGS.TYPESCRIPT, TAGS.NEXTAUTH, TAGS.MONGODB],
+    image: "/projects/jadirhGonzalesPoems.webp",
+    // github: "https://github.com/Carlos-Bolano/jadirhgonzalezpoems",
+    tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.NEXTAUTH, TAGS.MONGODB],
   },
   {
-    title: "Age Calculator",
+    title: "Travlog - Travels landing page",
     description:
-      "A solution to a challenge from Frontend Mentor, designed to improve development skills. This project focused on designing and implementing a user interface and calculation logic for an age calculator.",
-    link: "https://age--calculator.vercel.app/",
-    image: "/projects/project-04.webp",
-    github: "https://github.com/Carlos-Bolano/age-calculator",
-    // tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.VITE, TAGS.ESLINT],
-  },
-  {
-    title: "Task Manager",
-    description:
-      "A task management app built on the MERN stack (MongoDB, Express, React, Node.js). It features robust user authentication and CRUD functionality, allowing users to manage and filter tasks by categories. ",
-    link: "https://manejador-de-tareas.vercel.app",
-    image: "/projects/project-02.webp",
-    github: "https://github.com/Carlos-Bolano/Task-Organizer",
-    // tags: [TAGS.REACT, TAGS.NODE, TAGS.EXPRESS, TAGS.MONGODB, TAGS.TAILWIND],
-  },
-  {
-    title: "Travlog Landing Page",
-    description:
-      "Built based on a Figma design from the community, initially designed for desktop. I adapted it for mobile and developed it with AstroJS, learning new skills while creating it.",
+      "Construida a partir de un diseño en Figma de la comunidad, inicialmente diseñado para escritorio. Lo adapté para dispositivos móviles y lo desarrollé con AstroJS",
     link: "https://travlog-website.vercel.app/",
     image: "/projects/travlog.webp",
     github: "https://github.com/Carlos-Bolano/Travlog-Landing-Page",
-    // tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.ASTRO, TAGS.TAILWIND],
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.ASTRO],
   },
   {
-    title: "Believe in YourSelf",
+    title: "Age Calculator - Frontend Mentor Challenge",
     description:
-      "A responsive GYM website showcasing my focus on user experience. The design works seamlessly from desktop to mobile devices.",
-    link: "https://believe-in-yourself.netlify.app/",
-    image: "/projects/believe-in-yourself.webp",
-    github: "https://github.com/Carlos-Bolano/Believe_in_YourSelf",
-    // tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
+      "Una solución a un desafío de Frontend Mentor. Calcula la edad exacta de una persona. Creado con React, TypeScript y TailwindCSS.",
+    link: "https://age--calculator.vercel.app/",
+    image: "/projects/ageCalculator.webp",
+    github: "https://github.com/Carlos-Bolano/age-calculator",
+    tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.ESLINT],
+  },
+  {
+    title: "Task Manager - A task management web application.  ",
+    description:
+      "Una aplicación de gestión de tareas. Cuenta con autenticación. Los usuarios pueden gestionar y filtrar tareas por categorías. construida con el stack MERN.",
+    link: "https://manejador-de-tareas.vercel.app",
+    image: "/projects/tasksManager.webp",
+    github: "https://github.com/Carlos-Bolano/Task-Organizer",
+    tags: [TAGS.REACT, TAGS.NODE, TAGS.EXPRESS, TAGS.MONGODB],
   },
 ];
