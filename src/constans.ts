@@ -16,6 +16,9 @@ import ReactJS from "@/components/icons/ReactJS.astro";
 import Shadcn from "@/components/icons/Shadcn.astro";
 import Tailwind from "@/components/icons/Tailwind.astro";
 import TypeScript from "@/components/icons/TypeScript.astro";
+import MySQL from "./components/icons/MySQL.astro";
+import Java from "./components/icons/Java.astro";
+import Spring from "./components/icons/Spring.astro";
 
 export const navItems = [
   {
@@ -47,7 +50,7 @@ const TAGS = {
     icon: NextJS,
   },
   TAILWIND: {
-    name: "TailwindCSS",
+    name: "Tailwind",
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
@@ -131,6 +134,21 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: ExpressJS,
   },
+  MYSQL: {
+    name: "MySql",
+    class: "bg-[#003159] text-white",
+    icon: MySQL,
+  },
+  JAVA: {
+    name: "Java",
+    class: "bg-[#003159] text-white",
+    icon: Java,
+  },
+  SPRING: {
+    name: "Spring",
+    class: "bg-[#003159] text-white",
+    icon: Spring,
+  },
 };
 
 export const PROJECTS = [
@@ -179,4 +197,25 @@ export const PROJECTS = [
     github: "https://github.com/Carlos-Bolano/Task-Organizer",
     tags: [TAGS.REACT, TAGS.NODE, TAGS.EXPRESS, TAGS.MONGODB],
   },
+];
+
+export const TechStack = [
+  TAGS.HTML,
+  TAGS.CSS,
+  TAGS.JAVASCRIPT,
+  TAGS.TYPESCRIPT,
+  TAGS.ASTRO,
+  TAGS.REACT,
+  TAGS.NEXT,
+  TAGS.NEXTAUTH,
+  TAGS.ESLINT,
+  TAGS.TAILWIND,
+  TAGS.NODE,
+  TAGS.EXPRESS,
+  TAGS.MYSQL,
+  TAGS.MONGODB,
+  TAGS.GIT,
+  TAGS.GITHUB,
+  TAGS.JAVA,
+  TAGS.SPRING,
 ];
