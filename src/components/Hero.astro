@@ -6,10 +6,10 @@ import MailIcon from "@/components/icons/Mail.astro";
 import SocialPill from "@/components/SocialPill.astro";
 import CV from "./icons/CV.astro";
 import Github from "./icons/Github.astro";
-import { getI18N } from "@/i18n/index"
+import { getI18N } from "@/i18n/index";
 
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <section class="flex flex-col lg:flex-row items-center gap-8">
@@ -18,12 +18,12 @@ const i18n = getI18N({ currentLocale })
     height="220"
     src="/me.webp"
     alt={personalImageAlt}
-    class="object-cover  w-64 h-full p-1 lg:p-2 lg:w-64 rounded-2xl bg-gray-600/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+    class="object-cover w-64 h-full p-1 lg:p-2 lg:w-64 rounded-2xl bg-gray-600/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
     style="object-position: 50% 50%"
   />
 
   <div class="max-w-max">
-    <div class="flex items-center justify-center md:justify-normal flex-wrap-reverse gap-4 ">
+    <div class="flex items-center justify-center md:justify-normal flex-wrap-reverse gap-4">
       <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
         {i18n.INTRO.TITLE}
       </h1>
@@ -36,12 +36,10 @@ const i18n = getI18N({ currentLocale })
         <Badge>{i18n.INTRO.BADGE}</Badge>
       </a>
     </div>
-
     <p
       class="mt-4 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300 text-center md:text-start"
-      set:html={i18n.INTRO.DESCRIPTION}>
-    </p>
-
+      set:html={i18n.INTRO.DESCRIPTION}
+    />
     <nav class="flex flex-wrap justify-center md:justify-normal gap-4 mt-6">
       <SocialPill href="https://drive.google.com/file/d/1oW57JdISu_Tmg4fg9z_rUjth_c_qkpBo/view?usp=sharing">
         <CV class="size-4" />
