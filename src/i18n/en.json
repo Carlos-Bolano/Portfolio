@@ -10,10 +10,16 @@
     "CONTACT": "Contact"
   },
   "FOOTER": {
-    "COPYRIGHT": "All rights reserved",
+    "COPYRIGHT": "Almost all rights reserved",
     "LINKS": {
-      "ABOUT": "About Me",
-      "CONTACT": "Contact"
+      "ABOUT": {
+        "TITLE": "About Me",
+        "LINK": "About"
+      },
+      "CONTACT": {
+        "TITLE": "Contact",
+        "LINK": "Contact"
+      }
     }
   },
   "INTRO": {
@@ -45,6 +51,7 @@
     ]
   },
   "PROJECTS": {
+    "TITLE": "My projects",
     "moodflix": {
       "title": "Moodflix - Movie recommendations based on your mood",
       "description": "An AI-powered movie recommendation app. It suggests movies that match your mood. Created from scratch using Gemini and Next.js."
@@ -59,7 +66,7 @@
     }
   },
   "TECHNOLOGIES": {
-    "title": "Technologies"
+    "TITLE": "My Technologies"
   },
   "ABOUT": {
     "TITLE": "A bit about me",

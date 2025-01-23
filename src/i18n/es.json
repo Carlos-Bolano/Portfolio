@@ -12,8 +12,14 @@
   "FOOTER": {
     "COPYRIGHT": "Casi todos los derechos reservados",
     "LINKS": {
-      "ABOUT": "Sobre mi",
-      "CONTACT": "Contacto"
+      "ABOUT": {
+        "TITLE": "Sobre mi",
+        "LINK": "About"
+      },
+      "CONTACT": {
+        "TITLE": "Contacto",
+        "LINK": "Contact"
+      }
     }
   },
   "INTRO": {
@@ -45,6 +51,7 @@
     ]
   },
   "PROJECTS": {
+    "TITLE": "Mis proyectos",
     "moodflix": {
       "title": "Moodflix - Recomendaciones de películas según tu estado de ánimo",
       "description": "Una aplicación de recomendación de películas impulsada por IA. Sugiere películas que coincidan con su estado de ánimo. creada desde cero usando Gemini y Next.js."
@@ -59,7 +66,7 @@
     }
   },
   "TECHNOLOGIES": {
-    "title": "Tecnologías"
+    "TITLE": "Mis Tecnologías"
   },
   "ABOUT": {
     "TITLE": "Un poco sobre mi",
