@@ -1,36 +1,24 @@
 ---
-import ExperienceItem from "./ExperienceItem.astro"
-const EXPERIENCE = [
-  {
-    date: "Marzo 2024 - Diciembre 2024",
-    title: "Entrenador de Inteligencia Artificial (AI)",
-    company: "Outlier",
-    description:
-      "Entrené modelos de inteligencia artificial para optimizar la organización y reescritura de contenido, evaluando y mejorando su precisión en proyectos de texto, audio e imágenes. Proporcioné retroalimentación estructurada para ajustar modelos de procesamiento de lenguaje natural, reconocimiento de voz y visión por computadora.",
-  },
-  {
-    date: "Noviembre 2023 - Actualmente",
-    title: "Desarrollador Web freelance",
-    company: "SoftRivus S.A.S",
-    description:
-      "Diseñé e implementé soluciones web personalizadas, incluyendo un blog de poesía que aumentó un 30% la base de seguidores de un cliente. Mejoré el rendimiento de plataformas como EDUSAC para SoftRivus S.A.S., utilizando estrategias como Conventional Commits y Node.js para optimizar tiempos de desarrollo.",
-  },
-  {
-    date: "Marzo 2022 - Junio 2023",
-    title: "Técnico en Sistemas",
-    company: "Alcaldía Municipal de Magangué",
-    description:
-      "Realicé mantenimiento y reparación de más de 90 equipos de cómputo, optimizando procesos de soporte técnico y reduciendo significativamente fallas en un periodo de 3 meses, lo que garantizó la operatividad continua de los sistemas.",
-  },
-];
+import ExperienceItem from "./ExperienceItem.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const experience = t("EXPERIENCE");
+const experienceItems = "ITEMS" in experience ? experience.ITEMS : [];
 ---
 
 <ol class="relative mt-16">
   {
-    EXPERIENCE.map((experience) => (
+    experienceItems.map((experience) => (
       <li class="">
-        <ExperienceItem {...experience} />
+        <ExperienceItem
+          title={experience.TITLE}
+          company={experience.COMPANY}
+          description={experience.DESCRIPTION}
+          date={experience.DATE}
+        />
       </li>
     ))
   }
