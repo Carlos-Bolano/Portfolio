@@ -1,0 +1,70 @@
+{
+  "SEO": {
+    "SEO_TITLE_1": "Porfolio de Carlos Bolaño - Calisto,  Desarrollador y Programador Web con mas de 2 años de experiencia",
+    "SEO_DESCRIPTION": "Contrata a Carlos Bolaño(calisto) para crear tu aplicación web o móvil. Desarrollador Web, full stack de Barranquilla, colombia. Especializado en crear aplicaciones únicas."
+  },
+  "HEADER": {
+    "EXPERIENCE": "Experiencia",
+    "PROJECTS": "Proyectos",
+    "ABOUT": "Sobre mi",
+    "CONTACT": "Contacto"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "Casi todos los derechos reservados",
+    "LINKS": {
+      "ABOUT": "Sobre mi",
+      "CONTACT": "Contacto"
+    }
+  },
+  "INTRO": {
+    "TITLE": "Hey, soy calisto",
+    "DESCRIPTION": "+2 años de experiencia creando aplicaciones web innovadoras. <strong>Full Stack Web Developer</strong> de Barranquilla, <span class='text-yellow-500 font-medium'>Colo</span><span class='text-blue-500 font-medium'>mb</span><span class='text-red-500 font-medium'>ia</span> co. Especializado en desarrollar soluciones unicas para que resuelvan problemas reales.",
+    "BADGE": "Disponible para trabajar"
+  },
+  "EXPERIENCE": {
+    "TITLE": "Experiencia laboral",
+    "ITEMS": [
+      {
+        "DATE": "Marzo 2024 - Diciembre 2024",
+        "TITLE": "Entrenador de Inteligencia Artificial (AI)",
+        "COMPANY": "Outlier",
+        "DESCRIPTION": "Entrené modelos de inteligencia artificial para optimizar la organización y reescritura de contenido, evaluando y mejorando su precisión en proyectos de texto, audio e imágenes. Proporcioné retroalimentación estructurada para ajustar modelos de procesamiento de lenguaje natural, reconocimiento de voz y visión por computadora."
+      },
+      {
+        "DATE": "Noviembre 2023 - Actualmente",
+        "TITLE": "Desarrollador Web freelance",
+        "COMPANY": "SoftRivus S.A.S",
+        "DESCRIPTION": "Diseñé e implementé soluciones web personalizadas, incluyendo un blog de poesía que aumentó un 30% la base de seguidores de un cliente. Mejoré el rendimiento de plataformas como EDUSAC para SoftRivus S.A.S., utilizando estrategias como Conventional Commits y Node.js para optimizar tiempos de desarrollo."
+      },
+      {
+        "DATE": "Marzo 2022 - Junio 2023",
+        "TITLE": "Técnico en Sistemas",
+        "COMPANY": "Alcaldía Municipal de Magangué",
+        "DESCRIPTION": "Realicé mantenimiento y reparación de más de 90 equipos de cómputo, optimizando procesos de soporte técnico y reduciendo significativamente fallas en un periodo de 3 meses, lo que garantizó la operatividad continua de los sistemas."
+      }
+    ]
+  },
+  "PROJECTS": {
+    "moodflix": {
+      "title": "Moodflix - Recomendaciones de películas según tu estado de ánimo",
+      "description": "Una aplicación de recomendación de películas impulsada por IA. Sugiere películas que coincidan con su estado de ánimo. creada desde cero usando Gemini y Next.js."
+    },
+    "jadirh": {
+      "title": "Jadirh Gonzalez Poems - Blog de poesía",
+      "description": "Un blog de poesía que diseñé y desarrollé para un cliente apasionado por la escritura. Los fans pueden explorar, comentar y dar 'me gusta' a los poemas de Jadirh. Creado y diseñado desde cero por mi."
+    },
+    "travlog": {
+      "title": "Travlog - Página de viajes",
+      "description": "Construida a partir de un diseño en Figma de la comunidad, inicialmente diseñado para escritorio. Lo adapté para dispositivos móviles y lo desarrollé con AstroJS"
+    }
+  },
+  "TECHNOLOGIES": {
+    "title": "Tecnologías"
+  },
+  "ABOUT": {
+    "TITLE": "Un poco sobre mi",
+    "DESCRIPTION_1": " Soy Carlos Bolaño, aunque mis amigos me llaman Calisto. Con más de 3 años en la programación, trabajo como <strong>Freelance Full Stack Web Developer</strong> para pequeñas empresas en Barranquilla, <span class='text-yellow-500 font-medium'>Colo</span><span class='text-blue-500 font-medium'>mb</span><span class='text-red-500 font-medium'>ia</span>.",
+    "DESCRIPTION_2": " Durante el curso de <a href='https://globant.com/es' target='_blank'class='text-yellow-500 font-medium'>Backend en Globant University</a>, desarrollé un script que automatiza tareas en bases de datos MySQL, facilitando el aprendizaje de mis compañeros y optimizando el curso.",
+    "DESCRIPTION_3": " Con mi experiencia en desarrollo web, he creado proyectos como <a href='https://moodflix-by-calisto.vercel.app' target='_blank' class='text-yellow-500 font-medium'>Moodflix</a>, una app que ayuda a encontrar películas según el estado de ánimo, combinando tecnología y creatividad."
+  }
+}

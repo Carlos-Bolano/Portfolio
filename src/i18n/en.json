@@ -1,0 +1,70 @@
+{
+  "SEO": {
+    "SEO_TITLE_1": "Carlos Bolaño Portfolio - Calisto, Web Developer and Programmer with over 2 years of experience",
+    "SEO_DESCRIPTION": "Hire Carlos Bolaño (Calisto) to build your web or mobile application. Full stack web developer from Barranquilla, Colombia. Specializing in creating unique applications."
+  },
+  "HEADER": {
+    "EXPERIENCE": "Experience",
+    "PROJECTS": "Projects",
+    "ABOUT": "About Me",
+    "CONTACT": "Contact"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "All rights reserved",
+    "LINKS": {
+      "ABOUT": "About Me",
+      "CONTACT": "Contact"
+    }
+  },
+  "INTRO": {
+    "TITLE": "Hey, I'm Calisto",
+    "DESCRIPTION": "+2 years of experience creating innovative webs and web applications. <strong>Full Stack Web Developer</strong> from Barranquilla, <span class='text-yellow-500 font-medium'>Colo</span><span class='text-blue-500 font-medium'>mb</span><span class='text-red-500 font-medium'>ia</span> co. Specializing in developing unique solutions to solve real-world problems.",
+    "BADGE": "Available for work"
+  },
+  "EXPERIENCE": {
+    "TITLE": "Work Experience",
+    "ITEMS": [
+      {
+        "DATE": "March 2024 - December 2024",
+        "TITLE": "Artificial Intelligence (AI) Trainer",
+        "COMPANY": "Outlier",
+        "DESCRIPTION": "Trained AI models to optimize content organization and rewriting, evaluating and improving accuracy in text, audio, and image projects. Provided structured feedback to adjust models for natural language processing, speech recognition, and computer vision."
+      },
+      {
+        "DATE": "November 2023 - Present",
+        "TITLE": "Freelance Web Developer",
+        "COMPANY": "SoftRivus S.A.S",
+        "DESCRIPTION": "Designed and implemented custom web solutions, including a poetry blog that increased a client's follower base by 30%. Improved performance of platforms like EDUSAC for SoftRivus S.A.S. using strategies like Conventional Commits and Node.js to optimize development time."
+      },
+      {
+        "DATE": "March 2022 - June 2023",
+        "TITLE": "Systems Technician",
+        "COMPANY": "Municipal Government of Magangué",
+        "DESCRIPTION": "Performed maintenance and repair on over 90 computers, optimizing technical support processes and significantly reducing failures over a 3-month period, ensuring continuous system operation."
+      }
+    ]
+  },
+  "PROJECTS": {
+    "moodflix": {
+      "title": "Moodflix - Movie recommendations based on your mood",
+      "description": "An AI-powered movie recommendation app. It suggests movies that match your mood. Created from scratch using Gemini and Next.js."
+    },
+    "jadirh": {
+      "title": "Jadirh Gonzalez Poems - Poetry Blog",
+      "description": "A poetry blog that I designed and developed for a client passionate about writing. Fans can explore, comment on, and like Jadirh's poems. Created and designed from scratch by me."
+    },
+    "travlog": {
+      "title": "Travlog - Travel page",
+      "description": "Built from a community Figma design, initially designed for desktop. I adapted it for mobile devices and developed it using AstroJS."
+    }
+  },
+  "TECHNOLOGIES": {
+    "title": "Technologies"
+  },
+  "ABOUT": {
+    "TITLE": "A bit about me",
+    "DESCRIPTION_1": "I am Carlos Bolaño, though my friends call me Calisto. With over 3 years in programming, I work as a <strong>Freelance Full Stack Web Developer</strong> for small businesses in Barranquilla, <span class='text-yellow-500 font-medium'>Colo</span><span class='text-blue-500 font-medium'>mb</span><span class='text-red-500 font-medium'>ia</span>.",
+    "DESCRIPTION_2": "During my time at <a href='https://globant.com/es' target='_blank' class='text-yellow-500 font-medium'>Backend at Globant University</a>, I developed a script that automates tasks in MySQL databases, making it easier for my classmates and optimizing the course.",
+    "DESCRIPTION_3": "With my experience in web development, I have created projects like <a href='https://moodflix-by-calisto.vercel.app' target='_blank' class='text-yellow-500 font-medium'>Moodflix</a>, an app that helps find movies based on mood, combining technology and creativity."
+  }
+}
