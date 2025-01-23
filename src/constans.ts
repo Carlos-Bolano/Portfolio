@@ -34,9 +34,9 @@ interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  { title: "Experiencia", key: HeaderKeys.EXPERIENCE, url: "/#experiencia" },
-  { title: "Proyectos", key: HeaderKeys.PROJECTS, url: "/#proyectos" },
-  { title: "Sobre mí", key: HeaderKeys.ABOUT, url: "/#sobre-mi" },
+  { title: "Experiencia", key: HeaderKeys.EXPERIENCE, url: "#experience" },
+  { title: "Proyectos", key: HeaderKeys.PROJECTS, url: "#projects" },
+  { title: "Sobre mí", key: HeaderKeys.ABOUT, url: "#about" },
   { title: "Contacto", key: HeaderKeys.CONTACT, url: "mailto:carlostutos828@gmail.com" },
 ];
 
