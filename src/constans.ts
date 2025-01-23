@@ -20,27 +20,24 @@ import MySQL from "./components/icons/MySQL.astro";
 import Java from "./components/icons/Java.astro";
 import Spring from "./components/icons/Spring.astro";
 
-export const navItems = [
-  {
-    title: "Experiencia",
-    label: "experiencia",
-    url: "/#experiencia",
-  },
-  {
-    title: "Proyectos",
-    label: "proyectos",
-    url: "/#proyectos",
-  },
-  {
-    title: "Sobre mí",
-    label: "sobre-mi",
-    url: "/#sobre-mi",
-  },
-  {
-    title: "Contacto",
-    label: "contacto",
-    url: "mailto:carlostutos828@gmail.com",
-  },
+enum HeaderKeys {
+  EXPERIENCE = "EXPERIENCE",
+  PROJECTS = "PROJECTS",
+  ABOUT = "ABOUT",
+  CONTACT = "CONTACT",
+}
+
+interface NavItem {
+  title: string;
+  key: HeaderKeys;
+  url: string;
+}
+
+export const navItems: NavItem[] = [
+  { title: "Experiencia", key: HeaderKeys.EXPERIENCE, url: "/#experiencia" },
+  { title: "Proyectos", key: HeaderKeys.PROJECTS, url: "/#proyectos" },
+  { title: "Sobre mí", key: HeaderKeys.ABOUT, url: "/#sobre-mi" },
+  { title: "Contacto", key: HeaderKeys.CONTACT, url: "mailto:carlostutos828@gmail.com" },
 ];
 
 const TAGS = {
@@ -179,24 +176,24 @@ export const PROJECTS = [
     github: "https://github.com/Carlos-Bolano/Travlog-Landing-Page",
     tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.ASTRO],
   },
-  {
-    title: "Age Calculator - Frontend Mentor Challenge",
-    description:
-      "Una solución a un desafío de Frontend Mentor. Calcula la edad exacta de una persona. Creado con React, TypeScript y TailwindCSS.",
-    link: "https://age--calculator.vercel.app/",
-    image: "/projects/ageCalculator.webp",
-    github: "https://github.com/Carlos-Bolano/age-calculator",
-    tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.ESLINT],
-  },
-  {
-    title: "Task Manager - A task management web application.  ",
-    description:
-      "Una aplicación de gestión de tareas. Cuenta con autenticación. Los usuarios pueden gestionar y filtrar tareas por categorías. construida con el stack MERN.",
-    link: "https://manejador-de-tareas.vercel.app",
-    image: "/projects/tasksManager.webp",
-    github: "https://github.com/Carlos-Bolano/Task-Organizer",
-    tags: [TAGS.REACT, TAGS.NODE, TAGS.EXPRESS, TAGS.MONGODB],
-  },
+  // {
+  //   title: "Age Calculator - Frontend Mentor Challenge",
+  //   description:
+  //     "Una solución a un desafío de Frontend Mentor. Calcula la edad exacta de una persona. Creado con React, TypeScript y TailwindCSS.",
+  //   link: "https://age--calculator.vercel.app/",
+  //   image: "/projects/ageCalculator.webp",
+  //   github: "https://github.com/Carlos-Bolano/age-calculator",
+  //   tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.ESLINT],
+  // },
+  // {
+  //   title: "Task Manager - A task management web application.  ",
+  //   description:
+  //     "Una aplicación de gestión de tareas. Cuenta con autenticación. Los usuarios pueden gestionar y filtrar tareas por categorías. construida con el stack MERN.",
+  //   link: "https://manejador-de-tareas.vercel.app",
+  //   image: "/projects/tasksManager.webp",
+  //   github: "https://github.com/Carlos-Bolano/Task-Organizer",
+  //   tags: [TAGS.REACT, TAGS.NODE, TAGS.EXPRESS, TAGS.MONGODB],
+  // },
 ];
 
 export const TechStack = [
