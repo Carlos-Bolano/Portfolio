@@ -1,32 +1,62 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
-import { navItems } from "../../constans";
+import { navItems } from "../constans";
+import MenuBuger from "./icons/MenuBuger.astro";
+import { getI18N } from "@/i18n/index"
+import { getLangFromUrl, useTranslatedPath, } from '../i18n/utils';
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 ---
 
-<header class="fixed top-0 right-0 left-0 z-10 flex items-center justify-center container mx-auto lg:max-w-4xl md:max-w-2xl mt-2 px-4 md:px-0">
+<header
+  class="fixed top-0 right-0 left-0 z-10 flex items-center justify-center container mx-auto lg:max-w-4xl md:max-w-2xl mt-2 px-4 md:px-0"
+>
   <nav
     class="flex px-3 py-2 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-between items-center"
+    id="nav"
   >
     <div class="flex items-center gap-2">
-      <img class="rounded-full shadow-lg size-8 bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20" src="/me.webp" alt="Carlos Bolaño - Calisto" />
-      <a class="font-semibold text-lg" href="/" title="Calisto LOGO">Calisto</a>
+      <img
+        class="rounded-full shadow-lg size-8 bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+        src="/me.webp"
+        alt="Carlos Bolaño - Calisto"
+      />
+      <a class="font-semibold text-lg" href={translatePath('/')} title="Calisto LOGO">Calisto</a>
     </div>
-    <div class="flex items-center gap-2">
+
+    <div class="Header-nav-list hidden md:flex items-center gap-2">
       {
         navItems.map((link) => (
+          link.url.startsWith("mailto") ? (
           <a
             class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-500"
-            aria-label={link.label}
+            aria-label={link.title.toLowerCase()}
             href={link.url}
           >
-            {link.title}
+            {i18n.HEADER[link.key]}
           </a>
+          ) : (
+          <a
+            class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-500"
+            aria-label={link.url.split("#")[1]}
+            href={translatePath('/' + link.url)}
+          >
+            {i18n.HEADER[link.key]}
+          </a>
+          )
+          
         ))
       }
-      <div>
-        <ThemeToggle />
-      </div>
+      <ThemeToggle />
     </div>
+
+    <button class="md:hidden Header-burger-btn">
+      <MenuBuger class="size-7" />
+    </button>
   </nav>
 </header>
 
@@ -48,7 +78,7 @@ import { navItems } from "../../constans";
         }
       });
     };
-  
+
     const observer = new IntersectionObserver(callback, {
       root: null,
       rootMargin: "0px",
@@ -70,6 +100,20 @@ import { navItems } from "../../constans";
       }
     };
   });
+
+  const buttonMenu = document.querySelector(".Header-burger-btn") as HTMLButtonElement;
+  const navbar = document.querySelector(".Header-nav-list") as HTMLElement;
+  const navItems = document.querySelectorAll("header nav a");
+
+  function toggleMenu() {
+    navbar.classList.toggle("Header-nav-active");
+  }
+
+  buttonMenu.addEventListener("click", toggleMenu);
+  navItems.forEach((item) => {
+    item.addEventListener("click", toggleMenu);
+  });
+
 </script>
 
 <style>
@@ -82,6 +126,34 @@ import { navItems } from "../../constans";
   nav {
     @apply dark:bg-gray-800/90 bg-white/50 w-full;
   }
+
+  @media (max-width: 767px) {
+  .Header-burger-btn {
+    display: block;
+  }
+
+  .Header-nav-list {
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    height: 100vh;
+    width: 0; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.5em;
+    backdrop-filter: blur(5px);
+    transition: all 0.5s ease;
+    @apply bg-yellow-100/95 dark:bg-gray-800/95 backdrop-blur;
+  }
+
+  .Header-nav-active {
+    display: flex;
+    left: 0; 
+    width: 80%; 
+  }
+}
 
   @keyframes nav-shadown {
     0% {
