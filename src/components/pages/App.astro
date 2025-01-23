@@ -1,0 +1,64 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import AboutMe from "@/components/AboutMe.astro";
+import Briefcase from "@/components/icons/Briefcase.astro";
+import Experience from "@/components/Experience.astro";
+import SectionContainer from "@/components/SectionContainer.astro";
+import Hero from "@/components/Hero.astro";
+import TitleSection from "@/components/TitleSection.astro";
+import ProjectsIcon from "@/components/icons/Projects.astro";
+import AboutIcon from "@/components/icons/About.astro";
+import TechnologiesIcon from "@/components/icons/Technologies.astro";
+import Projects from "@/components/Projects.astro";
+import Technologies from "@/components/Technologies.astro";
+import { getI18N } from "@/i18n"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<Layout
+  title={i18n.SEO.SEO_TITLE_1}
+  description={i18n.SEO.SEO_DESCRIPTION}
+>
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero />
+    </SectionContainer>
+
+    <div class="space-y-24">
+      <SectionContainer id="experiencia">
+        <TitleSection>
+          <Briefcase class="size-8" />
+          Experiencia laboral
+        </TitleSection>
+        <Experience />
+      </SectionContainer>
+
+      <SectionContainer id="proyectos">
+        <TitleSection>
+          <ProjectsIcon class="size-8" />
+          Mis proyectos
+        </TitleSection>
+        <Projects />
+      </SectionContainer>
+
+      <SectionContainer id="tecnologias">
+        <TitleSection>
+          <TechnologiesIcon />
+          Mis Tecnologias
+        </TitleSection>
+        <Technologies />
+      </SectionContainer>
+
+      <SectionContainer id="sobre-mi">
+        <TitleSection>
+          <AboutIcon class="size-8" />
+          Un poco sobre mi
+        </TitleSection>
+        <AboutMe />
+      </SectionContainer>
+    </div>
+  </main>
+</Layout>
