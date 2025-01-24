@@ -1,27 +1,42 @@
-# 👨🏻‍💻 Porfolio para programadores y desarrolladores
+# Welcome to my portfolio 🌟
 
-<div align="center">
-<a href="https://porfolio.dev/">
-<img src="./public/porfolio.webp">
-</a>
-<p></p>
-</div>
+This is my personal website that showcases the projects I've worked on, demonstrating my skills and passion for development. The site highlights my expertise in various technologies and provides insight into the projects I've built.
 
-<div align="center">
+[![Portfolio Screenshot][product-screenshot]][Portfolio URL]
 
-![Astro Badge](https://img.shields.io/badge/Astro-FF3E00?logo=astro&logoColor=fff&style=flat)
-![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=fff&style=flat)
-![GitHub stars](https://img.shields.io/github/stars/midudev/porfolio.dev)
-![GitHub PRs](https://img.shields.io/github/issues-pr/midudev/porfolio.dev)
-![GitHub forks](https://img.shields.io/github/forks/midudev/porfolio.dev)
-![GitHub issues](https://img.shields.io/github/issues/midudev/porfolio.dev)
+### 🌟 Features:
 
-</div>
+- **Dark Mode** for a better browsing experience at night 🌙
+- **Internationalization** support to reach a global audience 🌍
+- **Personal projects display** showcasing skills and technologies 🖥️
+- **Custom animations** and transitions for an enhanced user experience 🎨
+- **Fully responsive design** for mobile and desktop views 📱💻
+- **Clean and professional UI** with modern design trends 🎨
 
-## 🫂 Contribuidores
+### 🛠️ Built With these technologies
 
-<a href="https://github.com/midudev/porfolio.dev/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=midudev/porfolio.dev" />
-</a>
+[![Astro][Astro Badge]][Astro URL] [![TailwindCSS][TailwindCSS Badge]][TailwindCSS URL] [![TypeScript][TypeScript Badge]][TypeScript URL]
 
-<p></p>
+## 📧 Contact
+
+I’d love to hear from you! Whether you have questions, feedback, or want to connect, feel free to reach out through any of the following platforms:
+
+[![X][X Badge]][X URL] [![LinkedIn][LinkedIn Badge]][LinkedIn URL] [![GMail][GMail Badge]][GMail URL] [![Portfolio][Portfolio Badge]][Portfolio URL]
+
+Looking forward to connecting with you!
+
+[X Badge]: https://img.shields.io/badge/X-000000.svg?style=for-the-badge&logo=X&logoColor=white
+[X URL]: https://x.com/Calisto_dev
+[LinkedIn Badge]: https://img.shields.io/badge/LinkedIn-0A66C2.svg?style=for-the-badge&logo=LinkedIn&logoColor=white
+[LinkedIn URL]: https://linkedin.com/in/carlos-bolano
+[GMail Badge]: https://img.shields.io/badge/Gmail-EA4335.svg?style=for-the-badge&logo=Gmail&logoColor=white
+[GMail URL]: mailto:carlostutos828@gmail.com
+[Portfolio Badge]: https://img.shields.io/badge/Portfolio-000000.svg?style=for-the-badge&logo=portfolio&logoColor=white
+[Portfolio URL]: https://carlos-bolano.vercel.app
+[product-screenshot]: /public/porfolio-screenshot.webp
+[Astro Badge]: https://img.shields.io/badge/Astro-FF5D00.svg?style=for-the-badge&logo=Astro&logoColor=white
+[Astro URL]: https://astro.build/
+[TypeScript Badge]: https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white
+[TypeScript URL]: https://www.typescriptlang.org/
+[TailwindCSS Badge]: https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white
+[TailwindCSS URL]: https://tailwindcss.com/
