@@ -2,11 +2,12 @@
 import ThemeToggle from "./ThemeToggle.astro";
 import { navItems } from "../constans";
 import MenuBuger from "./icons/MenuBuger.astro";
-import { getI18N } from "@/i18n/index"
-import { getLangFromUrl, useTranslatedPath, } from '../i18n/utils';
+import { getI18N } from "@/i18n/index";
+import { getLangFromUrl, useTranslatedPath } from "../i18n/utils";
+import LanguageShitcher from "./LanguageShitcher.astro";
 
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
@@ -27,33 +28,33 @@ const translatePath = useTranslatedPath(lang);
         width="32"
         height="32"
       />
-      <a class="font-semibold text-lg" href={translatePath('/')} title="Calisto LOGO">Calisto</a>
+      <a class="font-semibold text-lg" href={translatePath("/")} title="Calisto LOGO">Calisto</a>
     </div>
 
     <div class="Header-nav-list hidden md:flex items-center gap-2">
       {
-        navItems.map((link) => (
+        navItems.map((link) =>
           link.url.startsWith("mailto") ? (
-          <a
-            class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-500"
-            aria-label={link.title.toLowerCase()}
-            href={link.url}
-          >
-            {i18n.HEADER[link.key]}
-          </a>
+            <a
+              class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-500"
+              aria-label={link.title.toLowerCase()}
+              href={link.url}
+            >
+              {i18n.HEADER[link.key]}
+            </a>
           ) : (
-          <a
-            class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-500"
-            aria-label={link.url.split("#")[1]}
-            href={translatePath('/' + link.url)}
-          >
-            {i18n.HEADER[link.key]}
-          </a>
+            <a
+              class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-500"
+              aria-label={link.url.split("#")[1]}
+              href={translatePath("/" + link.url)}
+            >
+              {i18n.HEADER[link.key]}
+            </a>
           )
-          
-        ))
+        )
       }
       <ThemeToggle />
+      <LanguageShitcher />
     </div>
 
     <button class="md:hidden Header-burger-btn">
@@ -115,7 +116,6 @@ const translatePath = useTranslatedPath(lang);
   navItems.forEach((item) => {
     item.addEventListener("click", toggleMenu);
   });
-
 </script>
 
 <style>
@@ -130,32 +130,32 @@ const translatePath = useTranslatedPath(lang);
   }
 
   @media (max-width: 767px) {
-  .Header-burger-btn {
-    display: block;
-  }
+    .Header-burger-btn {
+      display: block;
+    }
 
-  .Header-nav-list {
-    position: absolute;
-    top: 0;
-    left: -100vw;
-    height: 100vh;
-    width: 0; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    font-size: 1.5em;
-    backdrop-filter: blur(5px);
-    transition: all 0.5s ease;
-    @apply bg-yellow-100/95 dark:bg-gray-800/95 backdrop-blur;
-  }
+    .Header-nav-list {
+      position: absolute;
+      top: 0;
+      left: -100vw;
+      height: 100vh;
+      width: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      font-size: 1.5em;
+      backdrop-filter: blur(5px);
+      transition: all 0.5s ease;
+      @apply bg-yellow-100/95 dark:bg-gray-800/95 backdrop-blur;
+    }
 
-  .Header-nav-active {
-    display: flex;
-    left: 0; 
-    width: 80%; 
+    .Header-nav-active {
+      display: flex;
+      left: 0;
+      width: 80%;
+    }
   }
-}
 
   @keyframes nav-shadown {
     0% {
