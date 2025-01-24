@@ -12,6 +12,10 @@
   "FOOTER": {
     "COPYRIGHT": "Almost all rights reserved",
     "LINKS": {
+      "CTA": {
+        "TITLE": "Go up",
+        "LINK": "/"
+      },
       "ABOUT": {
         "TITLE": "About Me",
         "LINK": "About"
@@ -24,7 +28,7 @@
   },
   "INTRO": {
     "TITLE": "Hey, I'm Calisto",
-    "DESCRIPTION": "+2 years of experience creating innovative webs and web applications. <strong>Full Stack Web Developer</strong> from Barranquilla, <span class='text-yellow-500 font-medium'>Colo</span><span class='text-blue-500 font-medium'>mb</span><span class='text-red-500 font-medium'>ia</span> co. Specializing in developing unique solutions to solve real-world problems.",
+    "DESCRIPTION": "+2 years of experience creating innovative webs and web applications. <strong>Full Stack Web Developer</strong> from Barranquilla, <span>Colo</span><span>mb</span><span>ia</span> co. Specializing in developing unique solutions to solve real-world problems.",
     "BADGE": "Available for work"
   },
   "EXPERIENCE": {
@@ -71,7 +75,7 @@
   "ABOUT": {
     "TITLE": "A bit about me",
     "DESCRIPTION_1": "I am Carlos Bolaño, though my friends call me Calisto. With over 3 years in programming, I work as a <strong>Freelance Full Stack Web Developer</strong> for small businesses in Barranquilla, <span class='text-yellow-500 font-medium'>Colo</span><span class='text-blue-500 font-medium'>mb</span><span class='text-red-500 font-medium'>ia</span>.",
-    "DESCRIPTION_2": "During my time at <a href='https://globant.com/es' target='_blank' class='text-yellow-500 font-medium'>Backend at Globant University</a>, I developed a script that automates tasks in MySQL databases, making it easier for my classmates and optimizing the course.",
+    "DESCRIPTION_2": "During the course at <a href='https://globant.com/es' target='_blank' class='text-yellow-500 font-medium'>Backend at Globant University</a>, I developed a script that automates tasks in MySQL databases, making it easier for my classmates and optimizing the course.",
     "DESCRIPTION_3": "With my experience in web development, I have created projects like <a href='https://moodflix-by-calisto.vercel.app' target='_blank' class='text-yellow-500 font-medium'>Moodflix</a>, an app that helps find movies based on mood, combining technology and creativity."
   }
 }
