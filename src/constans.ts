@@ -40,7 +40,17 @@ export const navItems: NavItem[] = [
   { title: "Contacto", key: HeaderKeys.CONTACT, url: "mailto:carlostutos828@gmail.com" },
 ];
 
-const TAGS = {
+interface Tag {
+  name: string;
+  class: string;
+  icon: any;
+}
+
+interface Tags {
+  [key: string]: Tag;
+}
+
+export const TAGS: Tags = {
   NEXT: {
     name: "Next.js",
     class: "bg-[#003159] text-white",
@@ -148,53 +158,14 @@ const TAGS = {
   },
 };
 
-export const PROJECTS = [
-  {
-    title: "Moodflix - Movies Recommendations based on your mood.",
-    description:
-      "Una aplicación de recomendación de películas impulsada por IA. Sugiere películas que coincidan con su estado de ánimo. creada desde cero usando Gemini y Next.js.",
-    link: "https://moodflix-by-calisto.vercel.app",
-    image: "/projects/moodflix.webp",
-    github: "https://github.com/Carlos-Bolano/moodflix",
-    tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.GEMINI],
-  },
-  {
-    title: "Jadirh Gonzalez Poems - Poetry Blog",
-    description:
-      "Un blog de poesía que diseñé y desarrollé para un cliente apasionado por la escritura. Los fans pueden explorar, comentar y dar 'me gusta' a los poemas de Jadirh. Creado y diseñado desde cero por mi.",
-    link: "https://jadirhgonzalezpoems.vercel.app",
-    image: "/projects/jadirhGonzalesPoems.webp",
-    // github: "https://github.com/Carlos-Bolano/jadirhgonzalezpoems",
-    tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.NEXTAUTH, TAGS.MONGODB],
-  },
-  {
-    title: "Travlog - Travels landing page",
-    description:
-      "Construida a partir de un diseño en Figma de la comunidad, inicialmente diseñado para escritorio. Lo adapté para dispositivos móviles y lo desarrollé con AstroJS",
-    link: "https://travlog-website.vercel.app/",
-    image: "/projects/travlog.webp",
-    github: "https://github.com/Carlos-Bolano/Travlog-Landing-Page",
-    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.ASTRO],
-  },
-  // {
-  //   title: "Age Calculator - Frontend Mentor Challenge",
-  //   description:
-  //     "Una solución a un desafío de Frontend Mentor. Calcula la edad exacta de una persona. Creado con React, TypeScript y TailwindCSS.",
-  //   link: "https://age--calculator.vercel.app/",
-  //   image: "/projects/ageCalculator.webp",
-  //   github: "https://github.com/Carlos-Bolano/age-calculator",
-  //   tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.ESLINT],
-  // },
-  // {
-  //   title: "Task Manager - A task management web application.  ",
-  //   description:
-  //     "Una aplicación de gestión de tareas. Cuenta con autenticación. Los usuarios pueden gestionar y filtrar tareas por categorías. construida con el stack MERN.",
-  //   link: "https://manejador-de-tareas.vercel.app",
-  //   image: "/projects/tasksManager.webp",
-  //   github: "https://github.com/Carlos-Bolano/Task-Organizer",
-  //   tags: [TAGS.REACT, TAGS.NODE, TAGS.EXPRESS, TAGS.MONGODB],
-  // },
-];
+export interface Project {
+  title: string;
+  description: string;
+  link: string;
+  image: string;
+  github?: string;
+  tags: any[];
+}
 
 export const TechStack = [
   TAGS.HTML,
