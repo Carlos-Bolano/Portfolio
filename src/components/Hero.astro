@@ -37,7 +37,9 @@ const i18n = getI18N({ currentLocale });
       </a>
     </div>
     <p
-      class="mt-4 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300 text-center md:text-start"
+      class="mt-4 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300 text-center md:text-start [&>span:first-of-type]:text-yellow-500 [&>span:first-of-type]:font-medium
+         [&>span:nth-of-type(2)]:text-blue-500 [&>span:nth-of-type(2)]:font-medium
+         [&>span:nth-of-type(3)]:text-red-500 [&>span:nth-of-type(3)]:font-medium"
       set:html={i18n.INTRO.DESCRIPTION}
     />
     <nav class="flex flex-wrap justify-center md:justify-normal gap-4 mt-6">
