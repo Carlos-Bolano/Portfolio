@@ -4,6 +4,14 @@ import { getI18N } from "@/i18n";
 import { TAGS } from "@/constans";
 import type { Project } from "@/constans";
 
+interface Props {
+  limit?: number;
+  variant?: "row" | "column";
+  enableFilter?: boolean;
+}
+
+const { limit = 4, variant = "row", enableFilter = false } = Astro.props;
+
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 
@@ -15,6 +23,7 @@ const PROJECTS: Project[] = [
     image: "/projects/moodflix.webp",
     github: "https://github.com/Carlos-Bolano/moodflix",
     tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.GEMINI],
+    category: "frontend",
   },
   {
     title: i18n.PROJECTS.jadirh.title,
@@ -23,6 +32,7 @@ const PROJECTS: Project[] = [
     image: "/projects/jadirhGonzalesPoems.webp",
     // github: "https://github.com/Carlos-Bolano/jadirhgonzalezpoems",
     tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.NEXTAUTH, TAGS.MONGODB],
+    category: "fullstack",
   },
   {
     title: i18n.PROJECTS.travlog.title,
@@ -31,21 +41,165 @@ const PROJECTS: Project[] = [
     image: "/projects/travlog.webp",
     github: "https://github.com/Carlos-Bolano/Travlog-Landing-Page",
     tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.ASTRO],
+    category: "frontend",
   },
 ];
+
+const visibleProjects = PROJECTS.slice(0, limit);
 ---
 
-<div class="flex flex-col gap-y-16">
+<div class={`${variant === "column" ? "grid grid-cols-1 md:grid-cols-2 gap-8" : "flex flex-col gap-y-16"}`}>
   {
-    PROJECTS.map((project) => (
-      <ProjectCard
-        title={project.title}
-        description={project.description}
-        image={project.image}
-        tags={project.tags}
-        link={project.link}
-        github={project.github}
-      />
+    enableFilter && (
+      <nav
+        data-project-filters
+        role="tablist"
+        class="w-full col-span-full border-b border-black/10 dark:border-white/15"
+      >
+        <div class="flex w-full justify-center gap-10 md:gap-12 min-w-max">
+          <button
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-filter="all"
+            class="py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-yellow-500 dark:text-yellow-500 border-yellow-500"
+          >
+            {i18n.PROJECTS_PAGE.FILTERS.ALL}
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="frontend"
+            class="py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500 dark:hover:text-yellow-500"
+          >
+            {i18n.PROJECTS_PAGE.FILTERS.FRONTEND}
+          </button>
+          {/* <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="backend"
+            class="py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500 dark:hover:text-yellow-500"
+          >
+            Backend
+          </button> */}
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="mobile"
+            class="py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500 dark:hover:text-yellow-500"
+          >
+            {i18n.PROJECTS_PAGE.FILTERS.MOBILE}
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="fullstack"
+            class="py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500 dark:hover:text-yellow-500"
+          >
+            {i18n.PROJECTS_PAGE.FILTERS.FULLSTACK}
+          </button>
+        </div>
+      </nav>
+    )
+  }
+  {
+    visibleProjects.map((project) => (
+      <div data-category={project.category} >
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          image={project.image}
+          tags={project.tags}
+          link={project.link}
+          github={project.github}
+          category={project.category}
+          variant={variant}
+        />
+      </div>
     ))
   }
 </div>
+
+{
+  enableFilter && (
+    <script>
+      function initProjectFilters() {
+        const filters = document.querySelector("[data-project-filters]");
+        if (!(filters instanceof HTMLElement)) return;
+        if (filters.dataset.bound === "true") return;
+        filters.dataset.bound = "true";
+
+        const buttons = filters.querySelectorAll("[data-filter]");
+        const cards = document.querySelectorAll("[data-category]");
+
+        const activeClasses = ["text-yellow-500", "dark:text-yellow-500", "border-yellow-500"];
+        const inactiveClasses = ["text-gray-700/70", "dark:text-gray-200/70", "border-transparent"];
+
+        let currentFilter = "all";
+        let currentActiveButton = filters.querySelector('[data-filter="all"]');
+
+        function applyFilter() {
+          cards.forEach((card) => {
+            const cat = card.getAttribute("data-category");
+            const show = currentFilter === "all" || cat === currentFilter;
+            card.toggleAttribute("hidden", !show);
+          });
+        }
+
+        function setActive() {
+          const activeButton = currentActiveButton;
+          if (!(activeButton instanceof HTMLElement)) return;
+
+          buttons.forEach((btn) => {
+            btn.setAttribute("aria-selected", "false");
+            activeClasses.forEach((c) => btn.classList.remove(c));
+            inactiveClasses.forEach((c) => btn.classList.add(c));
+          });
+
+          activeButton.setAttribute("aria-selected", "true");
+          inactiveClasses.forEach((c) => activeButton.classList.remove(c));
+          activeClasses.forEach((c) => activeButton.classList.add(c));
+        }
+
+        filters.addEventListener("click", (event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+          const btn = target.closest("[data-filter]");
+          if (!(btn instanceof HTMLElement)) return;
+          currentFilter = btn.getAttribute("data-filter") ?? "all";
+          currentActiveButton = btn;
+          applyFilter();
+          setActive();
+        });
+
+        if (currentActiveButton instanceof HTMLElement) {
+          currentFilter = "all";
+          applyFilter();
+          setActive();
+        }
+      }
+
+      initProjectFilters();
+      document.addEventListener("astro:page-load", initProjectFilters);
+      document.addEventListener("astro:after-swap", initProjectFilters);
+    </script>
+  )
+}
+
+{
+  enableFilter && (
+    <style>
+      [data-project-filters] {
+        scrollbar-width: none;
+      }
+
+      [data-project-filters]::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  )
+}

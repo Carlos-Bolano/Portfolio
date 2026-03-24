@@ -12,16 +12,18 @@ import AboutIcon from "@/components/icons/About.astro";
 import TechnologiesIcon from "@/components/icons/Technologies.astro";
 import Projects from "@/components/Projects.astro";
 import Technologies from "@/components/Technologies.astro";
-import { getI18N } from "@/i18n"
+import { getI18N } from "@/i18n";
+import SocialPill from "../SocialPill.astro";
+import { getLangFromUrl, useTranslatedPath } from "@/i18n/utils";
 
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 ---
 
-<Layout
-  title={i18n.SEO.SEO_TITLE_1}
-  description={i18n.SEO.SEO_DESCRIPTION}
->
+<Layout title={i18n.SEO.SEO_TITLE_1} description={i18n.SEO.SEO_DESCRIPTION}>
   <main class="px-4" id="main">
     <SectionContainer class="py-16 md:py-36">
       <Hero />
@@ -37,10 +39,17 @@ const i18n = getI18N({ currentLocale })
       </SectionContainer>
 
       <SectionContainer id="projects">
-        <TitleSection>
-          <ProjectsIcon class="size-8" />
-          {i18n.PROJECTS.TITLE}
-        </TitleSection>
+        <div class="flex justify-between w-full items-center">
+          <TitleSection>
+            <ProjectsIcon class="size-8" />
+            {i18n.PROJECTS.TITLE}
+          </TitleSection>
+
+          <a href={translatePath("/projects")} class="flex items-center gap-x-2">
+            {i18n.PROJECTS.VIEW_ALL}
+            <ProjectsIcon class="size-4" />
+          </a>
+        </div>
         <Projects />
       </SectionContainer>
 
