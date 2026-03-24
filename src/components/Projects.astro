@@ -62,7 +62,7 @@ const visibleProjects = PROJECTS.slice(0, limit);
             role="tab"
             aria-selected="true"
             data-filter="all"
-            class="py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-yellow-500 dark:text-yellow-500 border-yellow-500"
+            class="filter-btn py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-yellow-500 text-yellow-500"
           >
             {i18n.PROJECTS_PAGE.FILTERS.ALL}
           </button>
@@ -71,7 +71,7 @@ const visibleProjects = PROJECTS.slice(0, limit);
             role="tab"
             aria-selected="false"
             data-filter="frontend"
-            class="py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500 dark:hover:text-yellow-500"
+            class="filter-btn py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500"
           >
             {i18n.PROJECTS_PAGE.FILTERS.FRONTEND}
           </button>
@@ -80,16 +80,16 @@ const visibleProjects = PROJECTS.slice(0, limit);
             role="tab"
             aria-selected="false"
             data-filter="backend"
-            class="py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500 dark:hover:text-yellow-500"
+            class="filter-btn py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500 dark:hover:text-yellow-500"
           >
-            Backend
+            {i18n.PROJECTS_PAGE.FILTERS.BACKEND}
           </button> */}
           <button
             type="button"
             role="tab"
             aria-selected="false"
             data-filter="mobile"
-            class="py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500 dark:hover:text-yellow-500"
+            class="filter-btn py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500"
           >
             {i18n.PROJECTS_PAGE.FILTERS.MOBILE}
           </button>
@@ -98,7 +98,7 @@ const visibleProjects = PROJECTS.slice(0, limit);
             role="tab"
             aria-selected="false"
             data-filter="fullstack"
-            class="py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500 dark:hover:text-yellow-500"
+            class="filter-btn py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500"
           >
             {i18n.PROJECTS_PAGE.FILTERS.FULLSTACK}
           </button>
@@ -108,7 +108,7 @@ const visibleProjects = PROJECTS.slice(0, limit);
   }
   {
     visibleProjects.map((project) => (
-      <div data-category={project.category} >
+      <div data-category={project.category} class="project-item animate-in">
         <ProjectCard
           title={project.title}
           description={project.description}
@@ -124,82 +124,77 @@ const visibleProjects = PROJECTS.slice(0, limit);
   }
 </div>
 
-{
-  enableFilter && (
-    <script>
-      function initProjectFilters() {
-        const filters = document.querySelector("[data-project-filters]");
-        if (!(filters instanceof HTMLElement)) return;
-        if (filters.dataset.bound === "true") return;
-        filters.dataset.bound = "true";
+<script>
+  function initProjectFilters() {
+    const container = document.querySelector("[data-project-filters]");
+    if (!container) return;
 
-        const buttons = filters.querySelectorAll("[data-filter]");
-        const cards = document.querySelectorAll("[data-category]");
+    const buttons = container.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".project-item");
 
-        const activeClasses = ["text-yellow-500", "dark:text-yellow-500", "border-yellow-500"];
-        const inactiveClasses = ["text-gray-700/70", "dark:text-gray-200/70", "border-transparent"];
+    const activeClasses = ["text-yellow-500", "border-yellow-500"];
+    const inactiveClasses = ["text-gray-700/70", "dark:text-gray-200/70", "border-transparent"];
 
-        let currentFilter = "all";
-        let currentActiveButton = filters.querySelector('[data-filter="all"]');
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
 
-        function applyFilter() {
-          cards.forEach((card) => {
-            const cat = card.getAttribute("data-category");
-            const show = currentFilter === "all" || cat === currentFilter;
-            card.toggleAttribute("hidden", !show);
-          });
-        }
-
-        function setActive() {
-          const activeButton = currentActiveButton;
-          if (!(activeButton instanceof HTMLElement)) return;
-
-          buttons.forEach((btn) => {
-            btn.setAttribute("aria-selected", "false");
-            activeClasses.forEach((c) => btn.classList.remove(c));
-            inactiveClasses.forEach((c) => btn.classList.add(c));
-          });
-
-          activeButton.setAttribute("aria-selected", "true");
-          inactiveClasses.forEach((c) => activeButton.classList.remove(c));
-          activeClasses.forEach((c) => activeButton.classList.add(c));
-        }
-
-        filters.addEventListener("click", (event) => {
-          const target = event.target;
-          if (!(target instanceof Element)) return;
-          const btn = target.closest("[data-filter]");
-          if (!(btn instanceof HTMLElement)) return;
-          currentFilter = btn.getAttribute("data-filter") ?? "all";
-          currentActiveButton = btn;
-          applyFilter();
-          setActive();
+        // Update buttons UI
+        buttons.forEach((b) => {
+          b.setAttribute("aria-selected", "false");
+          b.classList.remove(...activeClasses);
+          b.classList.add(...inactiveClasses);
         });
+        btn.setAttribute("aria-selected", "true");
+        btn.classList.remove(...inactiveClasses);
+        btn.classList.add(...activeClasses);
 
-        if (currentActiveButton instanceof HTMLElement) {
-          currentFilter = "all";
-          applyFilter();
-          setActive();
-        }
-      }
+        // Filter cards
+        cards.forEach((card) => {
+          if (!(card instanceof HTMLElement)) return;
+          const category = card.getAttribute("data-category");
+          const isVisible = filter === "all" || category === filter;
 
-      initProjectFilters();
-      document.addEventListener("astro:page-load", initProjectFilters);
-      document.addEventListener("astro:after-swap", initProjectFilters);
-    </script>
-  )
-}
+          if (isVisible) {
+            card.style.display = "block";
+            // Restart animation
+            card.classList.remove("animate-in");
+            void card.offsetWidth;
+            card.classList.add("animate-in");
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  }
 
-{
-  enableFilter && (
-    <style>
-      [data-project-filters] {
-        scrollbar-width: none;
-      }
+  // Initial load
+  initProjectFilters();
+  // Handle view transitions
+  document.addEventListener("astro:page-load", initProjectFilters);
+</script>
 
-      [data-project-filters]::-webkit-scrollbar {
-        display: none;
-      }
-    </style>
-  )
-}
+<style>
+  [data-project-filters] {
+    scrollbar-width: none;
+  }
+  [data-project-filters]::-webkit-scrollbar {
+    display: none;
+  }
+
+  .animate-in {
+    animation: fadeInScale 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+</style>
