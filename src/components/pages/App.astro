@@ -39,17 +39,35 @@ const translatePath = useTranslatedPath(lang);
       </SectionContainer>
 
       <SectionContainer id="projects">
-        <div class="flex justify-between w-full items-center">
-          <TitleSection>
+        <div class="flex flex-row justify-between items-center w-full mb-10">
+          <TitleSection class="mb-0">
             <ProjectsIcon class="size-8" />
             {i18n.PROJECTS.TITLE}
           </TitleSection>
 
-          <a href={translatePath("/projects")} class="flex items-center gap-x-2">
+          <a
+            href={translatePath("/projects")}
+            class="group inline-flex items-center gap-x-2 px-4 py-2 text-sm font-semibold text-yellow-600 dark:text-yellow-400 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/20 rounded-xl transition-all duration-300"
+          >
             {i18n.PROJECTS.VIEW_ALL}
-            <ProjectsIcon class="size-4" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="size-4 transition-transform duration-300 group-hover:translate-x-1"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
           </a>
         </div>
+
         <Projects />
       </SectionContainer>
 
