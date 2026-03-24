@@ -24,8 +24,10 @@ export const ui = { es, en } as const;
 export const routes = {
   es: {
     home: "/",
+    projects: "/projects",
   },
   en: {
     home: "/",
+    projects: "/projects",
   },
 };
