@@ -14,15 +14,28 @@ export function useTranslations(lang: keyof typeof ui) {
 
 export function useTranslatedPath(lang: keyof typeof ui) {
   return function translatePath(path: string, l: string = lang) {
-    const pathName = path.replaceAll("/", "");
+    // 1. we take the path without the leading slash
+    const pathKey = path.replaceAll("/", "") || "home";
+
+    // 2. Check if there is a translation for that path
     const hasTranslation =
-      defaultLang !== l &&
-      (routes[l as keyof typeof routes] as Record<string, string>)[pathName] !== undefined;
-    const translatedPath = hasTranslation
-      ? "/" + (routes[l as keyof typeof routes] as Record<string, string>)[pathName]
+      routes[l as keyof typeof routes] !== undefined &&
+      (routes[l as keyof typeof routes] as Record<string, string>)[pathKey] !== undefined;
+
+    // 3. Get the base path (without the language prefix)
+    const basePath = hasTranslation
+      ? (routes[l as keyof typeof routes] as Record<string, string>)[pathKey]
       : path;
 
-    return !showDefaultLang && l === defaultLang ? translatedPath : `/${l}${translatedPath}`;
+    // 4. Build the final URL avoiding double slashes
+    const normalizedPath = basePath.startsWith("/") ? basePath : `/${basePath}`;
+
+    // If it's the default language and showDefaultLang is false, we don't add the /es/ prefix
+    if (!showDefaultLang && l === defaultLang) {
+      return normalizedPath;
+    }
+
+    return `/${l}${normalizedPath === "/" ? "" : normalizedPath}`;
   };
 }
 

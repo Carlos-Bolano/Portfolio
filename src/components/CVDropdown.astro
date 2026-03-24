@@ -1,0 +1,103 @@
+---
+import ArrowDown from "./icons/ArrowDown.astro";
+import CVIcon from "./icons/CV.astro";
+import SpainFlag from "./flags/Spain.astro";
+import USFlag from "./flags/UnitedStates.astro";
+
+const CV_LINKS = {
+  es: "https://drive.google.com/file/d/1wQLr4d01nxUUA7HMlhMYwVCb_oqRumbT/view?usp=sharing",
+  en: "https://drive.google.com/file/d/1KSMOVsETtiszS06qn9XOW7W0pov2-tgp/view?usp=sharing",
+};
+---
+
+<div class="relative inline-block">
+  <button
+    type="button"
+    id="cv-dropdown-btn"
+    class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition-colors duration-200 bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+    aria-expanded="false"
+    aria-haspopup="true"
+  >
+    <CVIcon class="size-4" />
+    Curriculum
+    <ArrowDown class="size-4 transition-transform group-aria-expanded:rotate-180" />
+  </button>
+
+  <div
+    id="cv-menu"
+    class="absolute hidden top-full left-0 mt-2 min-w-[10rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md z-50 overflow-hidden"
+  >
+    <ul class="py-1">
+      <li>
+        <a
+          href={CV_LINKS.es}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-800 dark:text-gray-200 hover:bg-yellow-500/10 dark:hover:bg-yellow-500/20 transition-colors"
+        >
+          <SpainFlag class="size-5" />
+          Español Cv
+        </a>
+      </li>
+      <li>
+        <a
+          href={CV_LINKS.en}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-800 dark:text-gray-200 hover:bg-yellow-500/10 dark:hover:bg-yellow-500/20 transition-colors"
+        >
+          <USFlag class="size-5" />
+          English Cv
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  #cv-menu.open {
+    display: block;
+    animation: scale-up-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframes scale-up-center {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const initDropdown = () => {
+      const toggleBtn = document.getElementById("cv-dropdown-btn");
+      const menu = document.getElementById("cv-menu");
+
+      if (!toggleBtn || !menu) return;
+
+      const toggleMenu = (event) => {
+        event.stopPropagation();
+        const isOpen = menu.classList.contains("open");
+        menu.classList.toggle("open");
+        toggleBtn.setAttribute("aria-expanded", !isOpen);
+      };
+
+      const closeMenu = () => {
+        menu.classList.remove("open");
+        toggleBtn.setAttribute("aria-expanded", "false");
+      };
+
+      toggleBtn.addEventListener("click", toggleMenu);
+      document.addEventListener("click", closeMenu);
+      menu.addEventListener("click", (event) => event.stopPropagation());
+    };
+
+    initDropdown();
+    document.addEventListener("astro:after-swap", initDropdown);
+  })();
+</script>

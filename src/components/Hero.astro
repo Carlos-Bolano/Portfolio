@@ -4,7 +4,8 @@ import Badge from "@/components/Badge.astro";
 import LinkedInIcon from "@/components/icons/LinkedIn.astro";
 import MailIcon from "@/components/icons/Mail.astro";
 import SocialPill from "@/components/SocialPill.astro";
-import CV from "./icons/CV.astro";
+import CVIcon from "./icons/CV.astro";
+import CVDropdown from "./CVDropdown.astro";
 import Github from "./icons/Github.astro";
 import { getI18N } from "@/i18n/index";
 
@@ -43,10 +44,7 @@ const i18n = getI18N({ currentLocale });
       set:html={i18n.INTRO.DESCRIPTION}
     />
     <nav class="flex flex-wrap justify-center md:justify-normal gap-4 mt-6">
-      <SocialPill href="https://drive.google.com/file/d/1oW57JdISu_Tmg4fg9z_rUjth_c_qkpBo/view?usp=sharing">
-        <CV class="size-4" />
-        Curriculum
-      </SocialPill>
+      <CVDropdown />
       <SocialPill href="mailto:carlostutos828@gmail.com">
         <MailIcon class="size-4" />
         Email

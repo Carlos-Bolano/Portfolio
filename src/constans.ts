@@ -165,6 +165,7 @@ export interface Project {
   image: string;
   github?: string;
   tags: any[];
+  category: "frontend" | "backend" | "mobile" | "fullstack" | "other";
 }
 
 export const TechStack = [

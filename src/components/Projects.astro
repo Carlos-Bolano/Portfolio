@@ -4,6 +4,14 @@ import { getI18N } from "@/i18n";
 import { TAGS } from "@/constans";
 import type { Project } from "@/constans";
 
+interface Props {
+  limit?: number;
+  variant?: "row" | "column";
+  enableFilter?: boolean;
+}
+
+const { limit = 4, variant = "row", enableFilter = false } = Astro.props;
+
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 
@@ -15,6 +23,7 @@ const PROJECTS: Project[] = [
     image: "/projects/moodflix.webp",
     github: "https://github.com/Carlos-Bolano/moodflix",
     tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.GEMINI],
+    category: "frontend",
   },
   {
     title: i18n.PROJECTS.jadirh.title,
@@ -23,6 +32,7 @@ const PROJECTS: Project[] = [
     image: "/projects/jadirhGonzalesPoems.webp",
     // github: "https://github.com/Carlos-Bolano/jadirhgonzalezpoems",
     tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.NEXTAUTH, TAGS.MONGODB],
+    category: "fullstack",
   },
   {
     title: i18n.PROJECTS.travlog.title,
@@ -31,21 +41,160 @@ const PROJECTS: Project[] = [
     image: "/projects/travlog.webp",
     github: "https://github.com/Carlos-Bolano/Travlog-Landing-Page",
     tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.ASTRO],
+    category: "frontend",
   },
 ];
+
+const visibleProjects = PROJECTS.slice(0, limit);
 ---
 
-<div class="flex flex-col gap-y-16">
+<div class={`${variant === "column" ? "grid grid-cols-1 md:grid-cols-2 gap-8" : "flex flex-col gap-y-16"}`}>
   {
-    PROJECTS.map((project) => (
-      <ProjectCard
-        title={project.title}
-        description={project.description}
-        image={project.image}
-        tags={project.tags}
-        link={project.link}
-        github={project.github}
-      />
+    enableFilter && (
+      <nav
+        data-project-filters
+        role="tablist"
+        class="w-full col-span-full border-b border-black/10 dark:border-white/15"
+      >
+        <div class="flex flex-wrap w-full justify-center gap-6 md:gap-12">
+          <button
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-filter="all"
+            class="filter-btn py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-yellow-500 text-yellow-500"
+          >
+            {i18n.PROJECTS_PAGE.FILTERS.ALL}
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="frontend"
+            class="filter-btn py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500"
+          >
+            {i18n.PROJECTS_PAGE.FILTERS.FRONTEND}
+          </button>
+          {/* <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="backend"
+            class="filter-btn py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500 dark:hover:text-yellow-500"
+          >
+            {i18n.PROJECTS_PAGE.FILTERS.BACKEND}
+          </button> */}
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="mobile"
+            class="filter-btn py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500"
+          >
+            {i18n.PROJECTS_PAGE.FILTERS.MOBILE}
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="fullstack"
+            class="filter-btn py-3 -mb-px text-sm font-medium tracking-widest uppercase transition border-b-2 border-transparent text-gray-700/70 dark:text-gray-200/70 hover:text-yellow-500"
+          >
+            {i18n.PROJECTS_PAGE.FILTERS.FULLSTACK}
+          </button>
+        </div>
+      </nav>
+    )
+  }
+  {
+    visibleProjects.map((project) => (
+      <div data-category={project.category} class="project-item animate-in">
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          image={project.image}
+          tags={project.tags}
+          link={project.link}
+          github={project.github}
+          category={project.category}
+          variant={variant}
+        />
+      </div>
     ))
   }
 </div>
+
+<script>
+  function initProjectFilters() {
+    const container = document.querySelector("[data-project-filters]");
+    if (!container) return;
+
+    const buttons = container.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".project-item");
+
+    const activeClasses = ["text-yellow-500", "border-yellow-500"];
+    const inactiveClasses = ["text-gray-700/70", "dark:text-gray-200/70", "border-transparent"];
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+
+        // Update buttons UI
+        buttons.forEach((b) => {
+          b.setAttribute("aria-selected", "false");
+          b.classList.remove(...activeClasses);
+          b.classList.add(...inactiveClasses);
+        });
+        btn.setAttribute("aria-selected", "true");
+        btn.classList.remove(...inactiveClasses);
+        btn.classList.add(...activeClasses);
+
+        // Filter cards
+        cards.forEach((card) => {
+          if (!(card instanceof HTMLElement)) return;
+          const category = card.getAttribute("data-category");
+          const isVisible = filter === "all" || category === filter;
+
+          if (isVisible) {
+            card.style.display = "block";
+            // Restart animation
+            card.classList.remove("animate-in");
+            void card.offsetWidth;
+            card.classList.add("animate-in");
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  }
+
+  // Initial load
+  initProjectFilters();
+  // Handle view transitions
+  document.addEventListener("astro:page-load", initProjectFilters);
+</script>
+
+<style>
+  [data-project-filters] {
+    scrollbar-width: none;
+  }
+  [data-project-filters]::-webkit-scrollbar {
+    display: none;
+  }
+
+  .animate-in {
+    animation: fadeInScale 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+</style>

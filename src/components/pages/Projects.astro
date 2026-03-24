@@ -1,0 +1,26 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ProjectsList from "@/components/Projects.astro";
+import SectionContainer from "@/components/SectionContainer.astro";
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<Layout title={`${i18n.PROJECTS.TITLE} | Calisto`} description={i18n.SEO.SEO_DESCRIPTION}>
+  <main class="px-4" id="main">
+    <SectionContainer class="py-16 md:py-24">
+      <header class="flex text-center flex-col gap-2 w-full items-center">
+        <h2 class="text-2xl md:text-4xl text-gray-800 dark:text-white font-bold">
+          {i18n.PROJECTS_PAGE.TITLE}
+        </h2>
+        <p class="text-center dark:text-gray-300 text-gray-800">{i18n.PROJECTS_PAGE.DESCRIPTION}</p>
+      </header>
+
+      <div class="mt-10">
+        <ProjectsList limit={Number.POSITIVE_INFINITY} variant="column" enableFilter={true} />
+      </div>
+    </SectionContainer>
+  </main>
+</Layout>
