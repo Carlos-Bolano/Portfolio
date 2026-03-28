@@ -27,13 +27,19 @@
     }
   },
   "INTRO": {
-    "TITLE": "Hey, soy calisto",
-    "DESCRIPTION": "+2 años de experiencia creando aplicaciones web innovadoras. <strong>Full Stack Web Developer</strong> de Barranquilla, <span>Colo</span><span>mb</span><span>ia</span>. Especializado en desarrollar soluciones unicas para que resuelvan problemas reales.",
-    "BADGE": "Disponible para trabajar"
+    "TITLE": "Hey, soy Calisto",
+    "DESCRIPTION": "<strong>Desarrollador Full Stack</strong> de Barranquilla, <span>Colo</span><span>mb</span><span>ia</span>. <br/> +2 años de experiencia construyendo productos modernos para web, escritorio y móviles con un fuerte enfoque en <strong>arquitectura</strong> y <strong>escalabilidad</strong>. Actualmente me encuentro liderando la evolución web en <a href='https://evolvepos.com/' target='_blank' rel='noopener noreferrer' class='text-[#29A2FF] font-medium'>EvolvePos.</a>",
+    "BADGE": "Buscando trabajo remoto"
   },
   "EXPERIENCE": {
     "TITLE": "Experiencia laboral",
     "ITEMS": [
+      {
+        "DATE": "Enero 2025 - Actualidad",
+        "TITLE": "Desarrollador Full Stack (Frontend-focused)",
+        "COMPANY": "EvolvePos",
+        "DESCRIPTION": "Lideré la migración estratégica de un software POS legacy a una plataforma web escalable construida desde cero. Diseñé una librería de componentes reutilizables con Tailwind + Radix UI, acelerando los tiempos de desarrollo del equipo. Arquitecté un launcher cross-platform con Electron.js para la distribución automatizada de software."
+      },
       {
         "DATE": "Marzo 2024 - Diciembre 2024",
         "TITLE": "Entrenador de Inteligencia Artificial (AI)",
@@ -76,9 +82,9 @@
   },
   "ABOUT": {
     "TITLE": "Un poco sobre mi",
-    "DESCRIPTION_1": " Soy Carlos Bolaño, aunque mis amigos me llaman Calisto. Con más de 3 años en la programación, trabajo como <strong>Freelance Full Stack Web Developer</strong> para pequeñas empresas en Barranquilla, <span class='text-yellow-500 font-medium'>Colo</span><span class='text-blue-500 font-medium'>mb</span><span class='text-red-500 font-medium'>ia</span>.",
-    "DESCRIPTION_2": " Durante el curso de <a href='https://globant.com/es' target='_blank'class='text-yellow-500 font-medium'>Backend en Globant University</a>, desarrollé un script que automatiza tareas en bases de datos MySQL, facilitando el aprendizaje de mis compañeros y optimizando el curso.",
-    "DESCRIPTION_3": " Con mi experiencia en desarrollo web, he creado proyectos como <a href='https://moodflix-by-calisto.vercel.app' target='_blank' class='text-yellow-500 font-medium'>Moodflix</a>, una app que ayuda a encontrar películas según el estado de ánimo, combinando tecnología y creatividad."
+    "DESCRIPTION_1": "Soy <strong>Carlos Bolaño</strong>, aunque mis amigos me llaman <strong>Calisto.</strong> Soy un <strong>Desarrollador Full Stack</strong> con una <strong>mentalidad de Product Owner</strong> y más de <strong>2 años de experiencia</strong> construyendo ecosistemas digitales escalables. Actualmente, lidero la evolución web estratégica en <a href='https://www.evolvepos.com/' target='_blank' class='text-yellow-500 font-medium'>EvolvePOS</a>, donde arquitecté la migración de sistemas legacy críticos para el negocio hacia <strong>plataformas web</strong> de alto rendimiento.",
+    "DESCRIPTION_2": "Mi ventaja técnica se define por un profundo dominio de <strong>Clean Architecture</strong> y <strong>principios SOLID</strong>. Más allá de cerrar la brecha entre backends complejos e interfaces fluidas, contribuí al avance de <strong>modelos de IA de clase mundial</strong>—incluyendo <strong>Google Gemini</strong> y <strong>Ollama de Meta</strong> durante mi tiempo en <a href='https://www.outlier.ai/' target='_blank' class='text-yellow-500 font-medium'>Outlier</a>. Esta trayectoria única me permite fusionar la excelencia de la ingeniería tradicional con la próxima generación de software inteligente.",
+    "DESCRIPTION_3": "Ya sea que esté diseñando soluciones de escritorio multiplataforma con <strong>Electron.js</strong> o lanzando productos móviles como <strong>4xMil</strong>, mi enfoque es la propiedad absoluta del resultado. No solo entrego funcionalidades; <strong>resuelvo problemas de negocio</strong> con precisión de ingeniería. Desde incrementar la audiencia de un cliente en un 30% hasta liderar migraciones de software complejas, construyo software que es tan robusto como impactante."
   },
   "PROJECTS_PAGE": {
     "TITLE": "Lista de todos mis proyectos 💻",

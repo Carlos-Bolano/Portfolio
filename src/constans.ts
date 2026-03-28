@@ -19,6 +19,11 @@ import TypeScript from "@/components/icons/TypeScript.astro";
 import MySQL from "./components/icons/MySQL.astro";
 import Java from "./components/icons/Java.astro";
 import Spring from "./components/icons/Spring.astro";
+import Expo from "./components/icons/Expo.astro";
+import ElectronJS from "./components/icons/ElectronJS.astro";
+import PostgreSQL from "./components/icons/PostgreSQL.astro";
+import Zustand from "./components/icons/Zustand.astro";
+import ReactQuery from "./components/icons/ReactQuery.astro";
 
 enum HeaderKeys {
   EXPERIENCE = "EXPERIENCE",
@@ -156,6 +161,36 @@ export const TAGS: Tags = {
     class: "bg-[#003159] text-white",
     icon: Spring,
   },
+  ELECTRON: {
+    name: "Electron.js",
+    class: "bg-[#003159] text-white",
+    icon: ElectronJS,
+  },
+  REACT_NATIVE: {
+    name: "React Native",
+    class: "bg-[#003159] text-white",
+    icon: ReactJS,
+  },
+  EXPO: {
+    name: "Expo",
+    class: "bg-[#003159] text-white",
+    icon: Expo,
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-[#003159] text-white",
+    icon: PostgreSQL,
+  },
+  ZUSTAND: {
+    name: "Zustand",
+    class: "bg-[#003159] text-white",
+    icon: Zustand,
+  },
+  REACT_QUERY: {
+    name: "ReactQuery",
+    class: "bg-[#003159] text-white",
+    icon: ReactQuery,
+  },
 };
 
 export interface Project {
@@ -187,4 +222,8 @@ export const TechStack = [
   TAGS.GITHUB,
   TAGS.JAVA,
   TAGS.SPRING,
+  TAGS.ELECTRON,
+  TAGS.POSTGRESQL,
+  TAGS.ZUSTAND,
+  TAGS.REACT_QUERY,
 ];
