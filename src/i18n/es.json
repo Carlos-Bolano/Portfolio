@@ -35,6 +35,12 @@
     "TITLE": "Experiencia laboral",
     "ITEMS": [
       {
+        "DATE": "Enero 2025 - Actualidad",
+        "TITLE": "Desarrollador Full Stack (Frontend-focused)",
+        "COMPANY": "EvolvePos",
+        "DESCRIPTION": "Lideré la migración estratégica de un software POS legacy a una plataforma web escalable construida desde cero. Diseñé una librería de componentes reutilizables con Tailwind + Radix UI, acelerando los tiempos de desarrollo del equipo. Arquitecté un launcher cross-platform con Electron.js para la distribución automatizada de software."
+      },
+      {
         "DATE": "Marzo 2024 - Diciembre 2024",
         "TITLE": "Entrenador de Inteligencia Artificial (AI)",
         "COMPANY": "Outlier",

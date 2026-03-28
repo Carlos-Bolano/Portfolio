@@ -35,7 +35,13 @@
     "TITLE": "Work Experience",
     "ITEMS": [
       {
-        "DATE": "March 2024 - December 2024",
+        "DATE": "January 2025 - Present",
+        "TITLE": "Full Stack Developer (Frontend-focused)",
+        "COMPANY": "EvolvePos",
+        "DESCRIPTION": "Led the strategic migration of legacy POS software to a scalable web platform built from scratch. Designed a reusable component library using Tailwind CSS and Radix UI, significantly accelerating team development cycles. Architected a cross-platform launcher with Electron.js for automated software distribution."
+      },
+      {
+        "DATE": "January 2024 - January 2025",
         "TITLE": "Artificial Intelligence (AI) Trainer",
         "COMPANY": "Outlier",
         "DESCRIPTION": "Trained AI models to optimize content organization and rewriting, evaluating and improving accuracy in text, audio, and image projects. Provided structured feedback to adjust models for natural language processing, speech recognition, and computer vision."
