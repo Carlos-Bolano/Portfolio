@@ -75,6 +75,18 @@
     "travlog": {
       "title": "Travlog - Travel page",
       "description": "Built from a community Figma design, initially designed for desktop. I adapted it for mobile devices and developed it using AstroJS."
+    },
+    "believeInYourself": {
+      "title": "Believe in YourSelf - Fitness Website",
+      "description": "A sleek and modern fitness website tailored for a gym, offering a 4-week workout plan. Designed with an intuitive layout to inspire and motivate users."
+    },
+    "tax4xMil": {
+      "title": "4xMil - Mobile Financial Calculator",
+      "description": "A practical mobile application designed to quickly and easily calculate the 4x1000 tax in Colombia. Features a clean interface, multilingual support, and dark mode."
+    },
+    "ageCalculator": {
+      "title": "Age Calculator - Interactive Age Tool",
+      "description": "My solution to an exciting challenge from Frontend Mentor. A precise tool that calculates a user's exact age, built to improve and refine responsive development and logic skills."
     }
   },
   "TECHNOLOGIES": {

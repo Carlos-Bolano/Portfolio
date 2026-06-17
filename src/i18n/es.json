@@ -60,21 +60,34 @@
       }
     ]
   },
+
   "PROJECTS": {
     "TITLE": "Mis proyectos",
     "VIEW_ALL": "Ver todos",
     "BACK": "Volver",
     "moodflix": {
       "title": "Moodflix - Recomendaciones de películas según tu estado de ánimo",
-      "description": "Una aplicación de recomendación de películas impulsada por IA. Sugiere películas que coincidan con su estado de ánimo. creada desde cero usando Gemini y Next.js."
+      "description": "Una aplicación de recomendación de películas impulsada por IA. Sugiere películas que coincidan con tu estado de ánimo. Creada desde cero usando Gemini y Next.js."
     },
     "jadirh": {
       "title": "Jadirh Gonzalez Poems - Blog de poesía",
-      "description": "Un blog de poesía que diseñé y desarrollé para un cliente apasionado por la escritura. Los fans pueden explorar, comentar y dar 'me gusta' a los poemas de Jadirh. Creado y diseñado desde cero por mi."
+      "description": "Un blog de poesía que diseñé y desarrollé para un cliente apasionado por la escritura. Los fans pueden explorar, comentar y dar 'me gusta' a los poemas de Jadirh. Creado y diseñado desde cero por mí."
     },
     "travlog": {
       "title": "Travlog - Página de viajes",
-      "description": "Construida a partir de un diseño en Figma de la comunidad, inicialmente diseñado para escritorio. Lo adapté para dispositivos móviles y lo desarrollé con AstroJS"
+      "description": "Construida a partir de un diseño en Figma de la comunidad, inicialmente diseñado para escritorio. Lo adapté para dispositivos móviles y lo desarrollé con AstroJS."
+    },
+    "believeInYourself": {
+      "title": "Believe in YourSelf - Sitio Web de Fitness",
+      "description": "Un sitio web de fitness moderno y elegante diseñado para un gimnasio, que ofrece un plan de entrenamiento de 4 semanas. Cuenta con una estructura intuitiva para inspirar y motivar a los usuarios."
+    },
+    "tax4xMil": {
+      "title": "4xMil - Calculadora Financiera Móvil",
+      "description": "Aplicación móvil práctica diseñada para simplificar el cálculo del impuesto del 4x1000 en Colombia de forma rápida. Incluye una interfaz limpia, soporte multiidioma y modo oscuro."
+    },
+    "ageCalculator": {
+      "title": "Age Calculator - Calculadora de Edad Interactiva",
+      "description": "Mi solución a un emocionante desafío de Frontend Mentor. Una herramienta precisa para calcular la edad exacta de un usuario, desarrollada para perfeccionar habilidades de lógica y maquetación."
     }
   },
   "TECHNOLOGIES": {
